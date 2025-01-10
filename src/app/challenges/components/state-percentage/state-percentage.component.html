@@ -1,1 +1,29 @@
-<p>state-percentage works!</p>
+<div class="container">
+  <h2>Análise de Distribuição por Estado</h2>
+
+  <div class="loading" *ngIf="loading">
+    Carregando dados...
+  </div>
+
+  <div class="error-message" *ngIf="error">
+    {{ error }}
+  </div>
+
+  <div class="content" *ngIf="!loading && !error">
+    <div class="total-value">
+      <h3>Valor Total Mensal:</h3>
+      <p>R$ {{ total | number:'1.2-2' }}</p>
+    </div>
+
+    <div class="state-grid">
+      <div class="state-card" *ngFor="let state of statePercentages">
+        <div class="state-header">{{ state.state }}</div>
+        <div class="state-value">R$ {{ state.value | number:'1.2-2' }}</div>
+        <div class="state-percentage">{{ state.percentage | number:'1.2-2' }}%</div>
+        <div class="percentage-bar">
+          <div class="bar-fill" [style.width.%]="state.percentage"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -3,6 +3,8 @@ import { FibonacciResult } from '../models/fibonacci.model';
 import { HttpClient } from '@angular/common/http';
 import { Observable, map } from 'rxjs';
 import { DailyBilling, BillingAnalysis } from '../models/billing.model';
+import { StateBilling, StatePercentage } from '../models/state-billing.model';
+import { of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -96,5 +98,26 @@ export class ChallengesService {
       daysAboveAverage,
       monthlyAverage,
     };
+  }
+
+  getStateData(): Observable<StateBilling[]> {
+    const stateData: StateBilling[] = [
+      { state: 'SP', value: 67836.43 },
+      { state: 'RJ', value: 36678.66 },
+      { state: 'MG', value: 29229.88 },
+      { state: 'ES', value: 27165.48 },
+      { state: 'Others', value: 19849.53 },
+    ];
+
+    return of(stateData);
+  }
+
+  calculateStatePercentages(stateData: StateBilling[]): StatePercentage[] {
+    const total = stateData.reduce((sum, state) => sum + state.value, 0);
+
+    return stateData.map((state) => ({
+      ...state,
+      percentage: (state.value / total) * 100,
+    }));
   }
 }

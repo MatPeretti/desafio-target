@@ -3,6 +3,7 @@ import { RouterOutlet } from '@angular/router';
 import { SumCalculatorComponent } from './challenges/components/sum-calculator/sum-calculator.component';
 import { FibonacciCheckerComponent } from './challenges/components/fibonacci-checker/fibonacci-checker.component';
 import { BillingAnalysisComponent } from './challenges/components/billing-analysis/billing-analysis.component';
+import { StatePercentageComponent } from './challenges/components/state-percentage/state-percentage.component';
 
 @Component({
   selector: 'app-root',
@@ -11,6 +12,7 @@ import { BillingAnalysisComponent } from './challenges/components/billing-analys
     SumCalculatorComponent,
     FibonacciCheckerComponent,
     BillingAnalysisComponent,
+    StatePercentageComponent,
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
