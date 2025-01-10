@@ -1,1 +1,51 @@
-<p>billing-analysis works!</p>
+<div class="container">
+  <h2>Análise de Faturamento Diário</h2>
+
+  <div class="loading" *ngIf="loading">
+    Carregando dados...
+  </div>
+
+  <div class="error-message" *ngIf="error">
+    {{ error }}
+  </div>
+
+  <div class="result-box" *ngIf="analysis && !loading">
+    <div class="analysis-item">
+      <h3>Valor de Faturamento Mais Baixo:</h3>
+      <p>R$ {{ analysis.lowestValue | number:'1.2-2' }}</p>
+    </div>
+
+    <div class="analysis-item">
+      <h3>Valor de Faturamento Mais Alto:</h3>
+      <p>R$ {{ analysis.highestValue | number:'1.2-2' }}</p>
+    </div>
+
+    <div class="analysis-item">
+      <h3>Média Mensal:</h3>
+      <p>R$ {{ analysis.monthlyAverage | number:'1.2-2' }}</p>
+    </div>
+
+    <div class="analysis-item">
+      <h3>Dias Acima da Média:</h3>
+      <p>{{ analysis.daysAboveAverage }} dias</p>
+    </div>
+  </div>
+
+  <div class="data-table" *ngIf="billingData.length > 0">
+    <h3>Dados Diários:</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Dia</th>
+          <th>Valor</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let day of billingData">
+          <td>{{ day.day }}</td>
+          <td>R$ {{ day.value | number:'1.2-2' }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

@@ -1,11 +1,16 @@
 import { Injectable } from '@angular/core';
 import { FibonacciResult } from '../models/fibonacci.model';
+import { HttpClient } from '@angular/common/http';
+import { Observable, map } from 'rxjs';
+import { DailyBilling, BillingAnalysis } from '../models/billing.model';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ChallengesService {
-  constructor() {}
+  private apiUrl = 'http://localhost:3000/billing';
+
+  constructor(private http: HttpClient) {}
 
   calculateIterativeSum(indice: number): number {
     let soma = 0;
@@ -41,6 +46,55 @@ export class ChallengesService {
       sequence,
       belongs,
       inputNumber: num,
+    };
+  }
+
+  getDailyBilling(): Observable<DailyBilling[]> {
+    return this.http.get<DailyBilling[]>(this.apiUrl).pipe(
+      map((response) => {
+        return Array.isArray(response) ? response : [];
+      })
+    );
+  }
+
+  analyzeBilling(data: DailyBilling[]): BillingAnalysis {
+    if (!Array.isArray(data) || data.length === 0) {
+      return {
+        lowestValue: 0,
+        highestValue: 0,
+        daysAboveAverage: 0,
+        monthlyAverage: 0,
+      };
+    }
+
+    const daysWithBilling = data.filter((day) => day && day.value > 0);
+
+    if (daysWithBilling.length === 0) {
+      return {
+        lowestValue: 0,
+        highestValue: 0,
+        daysAboveAverage: 0,
+        monthlyAverage: 0,
+      };
+    }
+
+    const lowestValue = Math.min(...daysWithBilling.map((day) => day.value));
+
+    const highestValue = Math.max(...daysWithBilling.map((day) => day.value));
+
+    const monthlyAverage =
+      daysWithBilling.reduce((acc, day) => acc + day.value, 0) /
+      daysWithBilling.length;
+
+    const daysAboveAverage = daysWithBilling.filter(
+      (day) => day.value > monthlyAverage
+    ).length;
+
+    return {
+      lowestValue,
+      highestValue,
+      daysAboveAverage,
+      monthlyAverage,
     };
   }
 }
