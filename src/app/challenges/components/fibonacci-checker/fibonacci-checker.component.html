@@ -1,1 +1,24 @@
-<p>fibonacci-checker works!</p>
+<div class="container">
+  <h2>Verificador de Fibonacci</h2>
+  <div class="input-group">
+    <label for="number">Digite um número:</label>
+    <input type="number" id="number" [(ngModel)]="inputNumber" placeholder="Ex: 21">
+    <button (click)="checkNumber()">Verificar</button>
+  </div>
+
+  <div class="error-message" *ngIf="errorMessage">
+    {{ errorMessage }}
+  </div>
+
+  <div class="result-box" *ngIf="result">
+    <p [class.belongs]="result?.belongs" [class.not-belongs]="!result.belongs">
+      O número {{ result?.inputNumber }}
+      {{ result?.belongs ? 'pertence' : 'não pertence' }}
+      à sequência de Fibonacci!
+    </p>
+    <div class="sequence">
+      <h3>Sequência gerada:</h3>
+      <p>{{ result?.sequence?.join(', ') }}</p>
+    </div>
+  </div>
+</div>
