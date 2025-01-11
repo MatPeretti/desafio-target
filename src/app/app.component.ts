@@ -20,5 +20,5 @@ import { StringInverterComponent } from './challenges/components/string-inverter
   styleUrl: './app.component.css',
 })
 export class AppComponent {
-  title = 'desafio-target';
+  title = 'Desafio Target Sistemas';
 }

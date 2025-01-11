@@ -1,20 +1,13 @@
-.container {
-  padding: 20px;
-  max-width: 600px;
-}
-
 .form-group {
-  margin: 1rem;
+  margin-bottom: 1rem;
 }
 
 .result {
-  margin-top: 20px;
+  margin-top: 1rem;
 }
 
-label {
-  margin: 0.5rem;
-}
-
-button {
-  margin-top: 10px;
+@media (max-width: 768px) {
+  .form-group {
+    padding: 10px 0px;
+  }
 }
