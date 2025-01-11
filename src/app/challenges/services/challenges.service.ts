@@ -120,4 +120,12 @@ export class ChallengesService {
       percentage: (state.value / total) * 100,
     }));
   }
+
+  invertString(text: string): string {
+    let invertedText = '';
+    for (let i = text.length - 1; i >= 0; i--) {
+      invertedText += text[i];
+    }
+    return invertedText;
+  }
 }

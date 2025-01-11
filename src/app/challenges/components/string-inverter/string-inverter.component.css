@@ -1,0 +1,20 @@
+.container {
+  padding: 20px;
+  max-width: 600px;
+}
+
+.form-group {
+  margin: 1rem;
+}
+
+.result {
+  margin-top: 20px;
+}
+
+label {
+  margin: 0.5rem;
+}
+
+button {
+  margin-top: 10px;
+}

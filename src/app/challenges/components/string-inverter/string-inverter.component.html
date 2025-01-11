@@ -1,1 +1,18 @@
-<p>string-inverter works!</p>
+<div class="container">
+  <h2>Inversor de Texto</h2>
+
+  <div class="form-group">
+    <label for="inputText">Digite o texto:</label>
+    <input type="text" class="form-control" id="inputText" [(ngModel)]="inputText" placeholder="Digite aqui o texto que deseja inverter">
+  </div>
+
+  <button class="btn btn-primary" (click)="invertText()">
+    Inverter Texto
+  </button>
+
+  <div *ngIf="invertedText" class="result">
+    <h4>Resultado:</h4>
+    <p><strong>Texto original:</strong> {{ inputText }}</p>
+    <p><strong>Texto invertido:</strong> {{ invertedText }}</p>
+  </div>
+</div>
