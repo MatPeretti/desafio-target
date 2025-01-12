@@ -11,14 +11,14 @@
   </div>
 
   <div class="result-box" *ngIf="result">
-    <p [class.belongs]="result?.belongs" [class.not-belongs]="!result.belongs">
-      O número {{ result?.inputNumber }}
-      {{ result?.belongs ? 'pertence' : 'não pertence' }}
+    <p [class.belongs]="result.belongs" [class.not-belongs]="!result.belongs">
+      O número {{ result.inputNumber }}
+      {{ result.belongs ? 'pertence' : 'não pertence' }}
       à sequência de Fibonacci!
     </p>
     <div class="sequence">
       <h3>Sequência gerada:</h3>
-      <p>{{ result?.sequence?.join(', ') }}</p>
+      <p>{{ result.sequence.join(', ') }}</p>
     </div>
   </div>
 </div>
