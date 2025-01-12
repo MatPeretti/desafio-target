@@ -1,59 +1,69 @@
-# DesafioTarget
+# Desafio Target Sistemas
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.0.7.
+Este é o desafio técnico para a vaga de Desenvolvedor Front-End, desenvolvido em Angular 19. O projeto consiste em 5 desafios que seguem a ordem solicitada na página. Para o 3º desafio, foi utilizado o json-server para simular uma API.
 
-## Development server
+## Tecnologias Utilizadas
 
-To start a local development server, run:
+- Angular 19
+- TypeScript
+- JSON Server
+- CSS
+- Concurrently
+
+## Pré-requisitos
+
+Antes de começar, verifique se você tem os seguintes requisitos instalados:
+
+- Node.js
+- npm (Node Package Manager)
+- Angular CLI
+
+## Instalação
+
+1. Clone o repositório
+
+```bash
+git clone https://github.com/MatPeretti/desafio-target.git
+```
+
+2. Instale as dependências
+
+```bash
+npm install
+```
+
+3. Inicie a aplicação
 
 ```bash
 npm start
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+A aplicação e o JSON Server iniciarão simultaneamente graças ao Concurrently.
 
-## Code scaffolding
+- Frontend: http://localhost:4200/
+- JSON Server: http://localhost:3000/
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+## Comandos Úteis
 
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
+Para fazer o build do projeto:
 
 ```bash
 ng build
 ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+## Estrutura do Projeto
 
-## Running unit tests
+O projeto está organizado da seguinte forma:
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+- /src/app/challenges/components: Componentes da aplicação
+- /src/app/challenges/services: Serviço utilizado
+- /src/app/challenges/models: Interfaces
+- /src/assets: Arquivo de dados
 
-```bash
-ng test
-```
+## Desafios Implementados
 
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+1. Soma: Cálculo do somatório de uma sequência numérica.
+2. Verificador Fibonacci: Verifica se um número informado pertence à sequência de Fibonacci.
+3. Análise de Faturamento: Calcula estatísticas de faturamento diário (menor valor, maior valor e dias acima da média) utilizando dados de um JSON.
+4. Percentual por Estado: Calcula o percentual de representação do faturamento de cada estado em relação ao total.
+5. Inversor de String: Inverte os caracteres de uma string sem utilizar funções prontas.
