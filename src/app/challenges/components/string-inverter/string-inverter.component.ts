@@ -18,6 +18,10 @@ export class StringInverterComponent {
   invertText(): void {
     if (this.inputText.trim()) {
       this.invertedText = this.challengesService.invertString(this.inputText);
+      setTimeout(() => {
+        const resultElement = document.querySelector('.result');
+        resultElement?.scrollIntoView({ behavior: 'smooth' });
+      }, 100);
     }
   }
 }
